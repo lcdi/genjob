@@ -1,9 +1,7 @@
 <?php
-function connect_db(){
-	$con=mysqli_connect("localhost","USER","PASS","jobs");
-		if (mysqli_connect_errno($con)){
-        		echo "Failed to connect to MySQL";
-		}
+$con=mysqli_connect("localhost","USER","PASS","jobs");
+	if (mysqli_connect_errno($con)){
+       		echo "Failed to connect to MySQL";
 }
 function addjob($code) {
 
@@ -11,7 +9,7 @@ function addjob($code) {
         global $con;
 
 	$query = "INSERT INTO jobnumbers (`jobnumber`,`date`,`type`,`name`,`size`,`extra`) VALUES($code);";
-        if (!mysqli_query($con, $query)) {
+        if (!mysqli_query(connect_db(), $query)) {
                 die('ERROR: ' . mysqli_error($con));
         } else {
                 echo "<br /> Success!";

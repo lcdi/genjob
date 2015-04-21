@@ -4,7 +4,7 @@
 include ('functions.php');
 
 
-connect_db();
+#connect_db();
 ?>
 
 
